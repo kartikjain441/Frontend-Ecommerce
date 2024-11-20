@@ -7,7 +7,7 @@ function AllUsers() {
 
   useEffect(() => {
     async function getUsers() {
-      const res = await axios.get("http://localhost:3000/api/user/all");
+      const res = await axios.get("https://backend-ecommerce-m2ut.onrender.com/user/all");
       setAllUsers(res.data);
     }
     getUsers();

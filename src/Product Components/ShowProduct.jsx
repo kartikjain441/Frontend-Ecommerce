@@ -16,7 +16,7 @@ const ShowProduct = () => {
     const token = localStorage.getItem("Auth");
 
     const res = await axios.post(
-      "http://localhost:3000/api/cart/add",
+      "https://backend-ecommerce-m2ut.onrender.com/cart/add",
       {
         productId,
         title,
@@ -33,7 +33,7 @@ const ShowProduct = () => {
 
     toast.success(res.data.message);
 
-    const updatedCart = await axios.get(`http://localhost:3000/api/cart/user`, {
+    const updatedCart = await axios.get(`https://backend-ecommerce-m2ut.onrender.com/cart/user`, {
       headers: {
         Auth: token,
       },

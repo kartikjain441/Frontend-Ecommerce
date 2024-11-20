@@ -29,7 +29,7 @@ function Checkout() {
   const handlePayment = async () => {
     try {
       const orderRespons = await axios.post(
-        "http://localhost:3000/api/Payment/checkout",
+        "https://backend-ecommerce-m2ut.onrender.com/Payment/checkout",
         {
           amount: TotalPrice,
           qty: TotalQty,
@@ -61,7 +61,7 @@ function Checkout() {
           };
 
           const api = await axios.post(
-            "http://localhost:3000/api/payment/verify-payment",
+            "https://backend-ecommerce-m2ut.onrender.com/payment/verify-payment",
             paymentData
           );
 
@@ -70,7 +70,7 @@ function Checkout() {
           if (api.data.success) {
             const token = localStorage.getItem("Auth");
             const res = await axios.get(
-              "http://localhost:3000/api/cart/clear",
+              "https://backend-ecommerce-m2ut.onrender.com/cart/clear",
               {
                 headers: {
                   Auth: token,
@@ -104,17 +104,23 @@ function Checkout() {
   async function handleDecreaseQty(id) {
     const token = localStorage.getItem("Auth");
 
-    const res = await axios.get(`http://localhost:3000/api/cart/--qty/${id}`, {
-      headers: {
-        Auth: token,
-      },
-    });
+    const res = await axios.get(
+      `https://backend-ecommerce-m2ut.onrender.com/cart/--qty/${id}`,
+      {
+        headers: {
+          Auth: token,
+        },
+      }
+    );
 
-    const updatedCart = await axios.get(`http://localhost:3000/api/cart/user`, {
-      headers: {
-        Auth: token,
-      },
-    });
+    const updatedCart = await axios.get(
+      `https://backend-ecommerce-m2ut.onrender.com/cart/user`,
+      {
+        headers: {
+          Auth: token,
+        },
+      }
+    );
 
     setUserCart(updatedCart.data.items);
   }
@@ -123,7 +129,7 @@ function Checkout() {
     const token = localStorage.getItem("Auth");
 
     const res = await axios.get(
-      `http://localhost:3000/api/cart/qty/increase/${id}`,
+      `https://backend-ecommerce-m2ut.onrender.com/cart/qty/increase/${id}`,
       {
         headers: {
           Auth: token,
@@ -131,27 +137,36 @@ function Checkout() {
       }
     );
 
-    const updatedCart = await axios.get(`http://localhost:3000/api/cart/user`, {
-      headers: {
-        Auth: token,
-      },
-    });
+    const updatedCart = await axios.get(
+      `https://backend-ecommerce-m2ut.onrender.com/cart/user`,
+      {
+        headers: {
+          Auth: token,
+        },
+      }
+    );
 
     setUserCart(updatedCart.data.items);
   }
   async function handleRemove(id) {
     const token = localStorage.getItem("Auth");
-    const res = await axios.get(`http://localhost:3000/api/cart/remove/${id}`, {
-      headers: {
-        Auth: token,
-      },
-    });
+    const res = await axios.get(
+      `https://backend-ecommerce-m2ut.onrender.com/cart/remove/${id}`,
+      {
+        headers: {
+          Auth: token,
+        },
+      }
+    );
 
-    const updatedCart = await axios.get(`http://localhost:3000/api/cart/user`, {
-      headers: {
-        Auth: token,
-      },
-    });
+    const updatedCart = await axios.get(
+      `https://backend-ecommerce-m2ut.onrender.com/cart/user`,
+      {
+        headers: {
+          Auth: token,
+        },
+      }
+    );
     setUserCart(updatedCart.data.items);
   }
 

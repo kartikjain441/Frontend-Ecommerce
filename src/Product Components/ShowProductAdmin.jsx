@@ -17,14 +17,14 @@ function ShowProductAdmin() {
 
   async function handleDelete(id) {
     const res = await axios.delete(
-      `http://localhost:3000/api/product/delete/${id}`
+      `https://backend-ecommerce-m2ut.onrender.com/product/delete/${id}`
     );
     if (res.data.success) {
       navigate("/");
       toast.success(res.data.message);
     }
 
-    const respone = await axios.get("http://localhost:3000/api/product/all");
+    const respone = await axios.get("https://backend-ecommerce-m2ut.onrender.com/product/all");
 
     setAllProducts(respone.data);
   }

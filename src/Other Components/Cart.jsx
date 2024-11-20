@@ -10,13 +10,13 @@ function Cart() {
   async function handleDecreaseQty(id) {
     const token = localStorage.getItem("Auth");
 
-    const res = await axios.get(`http://localhost:3000/api/cart/--qty/${id}`, {
+    const res = await axios.get(`https://backend-ecommerce-m2ut.onrender.com/cart/--qty/${id}`, {
       headers: {
         Auth: token,
       },
     });
 
-    const updatedCart = await axios.get(`http://localhost:3000/api/cart/user`, {
+    const updatedCart = await axios.get(`https://backend-ecommerce-m2ut.onrender.com/cart/user`, {
       headers: {
         Auth: token,
       },
@@ -29,7 +29,7 @@ function Cart() {
     const token = localStorage.getItem("Auth");
 
     const res = await axios.get(
-      `http://localhost:3000/api/cart/qty/increase/${id}`,
+      `https://backend-ecommerce-m2ut.onrender.com/cart/qty/increase/${id}`,
       {
         headers: {
           Auth: token,
@@ -37,7 +37,7 @@ function Cart() {
       }
     );
 
-    const updatedCart = await axios.get(`http://localhost:3000/api/cart/user`, {
+    const updatedCart = await axios.get(`https://backend-ecommerce-m2ut.onrender.com/cart/user`, {
       headers: {
         Auth: token,
       },
@@ -48,13 +48,13 @@ function Cart() {
 
   async function handleRemove(id) {
     const token = localStorage.getItem("Auth");
-    const res = await axios.get(`http://localhost:3000/api/cart/remove/${id}`, {
+    const res = await axios.get(`https://backend-ecommerce-m2ut.onrender.com/cart/remove/${id}`, {
       headers: {
         Auth: token,
       },
     });
 
-    const updatedCart = await axios.get(`http://localhost:3000/api/cart/user`, {
+    const updatedCart = await axios.get(`https://backend-ecommerce-m2ut.onrender.com/cart/user`, {
       headers: {
         Auth: token,
       },
@@ -79,7 +79,7 @@ function Cart() {
 
   async function handleClearCart() {
     const token = localStorage.getItem("Auth");
-    const res = await axios.get("http://localhost:3000/api/cart/clear", {
+    const res = await axios.get("https://backend-ecommerce-m2ut.onrender.com/cart/clear", {
       headers: {
         Auth: token,
       },

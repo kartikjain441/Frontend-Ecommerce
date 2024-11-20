@@ -20,7 +20,7 @@ function EditProduct() {
     e.preventDefault();
 
     const res = await axios.put(
-      `http://localhost:3000/api/product/update/${id}`,
+      `https://backend-ecommerce-m2ut.onrender.com/product/update/${id}`,
       FormData
     );
 
@@ -29,7 +29,7 @@ function EditProduct() {
       toast.success(res.data.message);
     }
 
-    const respone = await axios.get("http://localhost:3000/api/product/all");
+    const respone = await axios.get("https://backend-ecommerce-m2ut.onrender.com/product/all");
 
     setAllProducts(respone.data);
   }

@@ -22,11 +22,14 @@ function Address() {
   async function handleOnClick() {
     try {
       const token = localStorage.getItem("Auth");
-      const res = await axios.get("http://localhost:3000/api/address/get", {
-        headers: {
-          Auth: token,
-        },
-      });
+      const res = await axios.get(
+        "https://backend-ecommerce-m2ut.onrender.com/api/address/get",
+        {
+          headers: {
+            Auth: token,
+          },
+        }
+      );
 
       if (res.data.LastAddress) {
         setFormData({
@@ -51,7 +54,7 @@ function Address() {
   async function handleOnSubmit() {
     const token = localStorage.getItem("Auth");
     const res = await axios.post(
-      "http://localhost:3000/api/address/add",
+      "https://backend-ecommerce-m2ut.onrender.com/address/add",
       FormData,
       {
         headers: {

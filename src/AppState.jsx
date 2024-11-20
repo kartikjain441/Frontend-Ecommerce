@@ -19,7 +19,7 @@ function AppState({ children }) {
   useEffect(() => {
     async function getUserCart() {
       const token = localStorage.getItem("Auth");
-      const res = await axios.get("http://localhost:3000/api/cart/user", {
+      const res = await axios.get("https://backend-ecommerce-m2ut.onrender.com/cart/user", {
         headers: {
           Auth: token,
         },
@@ -32,7 +32,7 @@ function AppState({ children }) {
 
   const user_Order = async () => {
     const token = localStorage.getItem("Auth");
-    const api = await axios.get("http://localhost:3000/api/payment/userorder", {
+    const api = await axios.get("https://backend-ecommerce-m2ut.onrender.com/payment/userorder", {
       headers: {
         Auth: token,
       },
@@ -45,7 +45,7 @@ function AppState({ children }) {
     const getProducts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/product/all"
+          "https://backend-ecommerce-m2ut.onrender.com/product/all"
         );
         setAllProducts(response.data);
       } catch (error) {

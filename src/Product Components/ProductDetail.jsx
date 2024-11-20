@@ -13,7 +13,7 @@ function ProductDetail() {
   useEffect(() => {
     async function getSpecificProduct() {
       const res = await axios.get(
-        `http://localhost:3000/api/product/get/${id}`
+        `https://backend-ecommerce-m2ut.onrender.com/product/get/${id}`
       );
 
       setSpcProduct(res.data);
@@ -30,7 +30,7 @@ function ProductDetail() {
     const token = localStorage.getItem("Auth");
 
     const res = await axios.post(
-      "http://localhost:3000/api/cart/add",
+      "https://backend-ecommerce-m2ut.onrender.com/cart/add",
       {
         productId,
         title,
@@ -47,7 +47,7 @@ function ProductDetail() {
 
     toast.success(res.data.message);
 
-    const updatedCart = await axios.get(`http://localhost:3000/api/cart/user`, {
+    const updatedCart = await axios.get(`https://backend-ecommerce-m2ut.onrender.com/cart/user`, {
       headers: {
         Auth: token,
       },
