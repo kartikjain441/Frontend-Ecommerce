@@ -10,19 +10,19 @@ const ForgetPassword = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://backend-ecommerce-m2ut.onrender.com/user/forget-password",
+        "https://backend-ecommerce-m2ut.onrender.com/api/user/forget-password",
         { email }
       );
       toast.success(res.data.message);
     } catch (error) {
       console.error("Error:", error);
       toast.error("Failed to send reset link");
-    }      
+    }
   };
 
   return (
-    <div className="container mt-5" style={{width:"100%" , height:"100%"}} >
-      <div className="card"  style={{width:"50%" ,height:"100%"}}>
+    <div className="container mt-5" style={{ width: "100%", height: "100%" }}>
+      <div className="card" style={{ width: "50%", height: "100%" }}>
         <div className="card-header text-center">
           <h4>Forget Password</h4>
         </div>

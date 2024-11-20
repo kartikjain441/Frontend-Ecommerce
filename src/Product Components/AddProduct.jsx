@@ -14,14 +14,16 @@ const AddProduct = () => {
     e.preventDefault();
 
     const res = await axios.post(
-      "https://backend-ecommerce-m2ut.onrender.com/product/add",
+      "https://backend-ecommerce-m2ut.onrender.com/api/product/add",
       FormData
     );
     if (res.data.success) {
       navigate("/");
     }
 
-    const respone = await axios.get("https://backend-ecommerce-m2ut.onrender.com/product/all");
+    const respone = await axios.get(
+      "https://backend-ecommerce-m2ut.onrender.com/api/product/all"
+    );
 
     setAllProducts(respone.data);
   }

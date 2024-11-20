@@ -10,17 +10,23 @@ function Cart() {
   async function handleDecreaseQty(id) {
     const token = localStorage.getItem("Auth");
 
-    const res = await axios.get(`https://backend-ecommerce-m2ut.onrender.com/cart/--qty/${id}`, {
-      headers: {
-        Auth: token,
-      },
-    });
+    const res = await axios.get(
+      `https://backend-ecommerce-m2ut.onrender.com/api/cart/--qty/${id}`,
+      {
+        headers: {
+          Auth: token,
+        },
+      }
+    );
 
-    const updatedCart = await axios.get(`https://backend-ecommerce-m2ut.onrender.com/cart/user`, {
-      headers: {
-        Auth: token,
-      },
-    });
+    const updatedCart = await axios.get(
+      `https://backend-ecommerce-m2ut.onrender.com/api/cart/user`,
+      {
+        headers: {
+          Auth: token,
+        },
+      }
+    );
 
     setUserCart(updatedCart.data.items);
   }
@@ -29,7 +35,7 @@ function Cart() {
     const token = localStorage.getItem("Auth");
 
     const res = await axios.get(
-      `https://backend-ecommerce-m2ut.onrender.com/cart/qty/increase/${id}`,
+      `https://backend-ecommerce-m2ut.onrender.com/api/cart/qty/increase/${id}`,
       {
         headers: {
           Auth: token,
@@ -37,28 +43,37 @@ function Cart() {
       }
     );
 
-    const updatedCart = await axios.get(`https://backend-ecommerce-m2ut.onrender.com/cart/user`, {
-      headers: {
-        Auth: token,
-      },
-    });
+    const updatedCart = await axios.get(
+      `https://backend-ecommerce-m2ut.onrender.com/api/cart/user`,
+      {
+        headers: {
+          Auth: token,
+        },
+      }
+    );
 
     setUserCart(updatedCart.data.items);
   }
 
   async function handleRemove(id) {
     const token = localStorage.getItem("Auth");
-    const res = await axios.get(`https://backend-ecommerce-m2ut.onrender.com/cart/remove/${id}`, {
-      headers: {
-        Auth: token,
-      },
-    });
+    const res = await axios.get(
+      `https://backend-ecommerce-m2ut.onrender.com/api/cart/remove/${id}`,
+      {
+        headers: {
+          Auth: token,
+        },
+      }
+    );
 
-    const updatedCart = await axios.get(`https://backend-ecommerce-m2ut.onrender.com/cart/user`, {
-      headers: {
-        Auth: token,
-      },
-    });
+    const updatedCart = await axios.get(
+      `https://backend-ecommerce-m2ut.onrender.com/api/cart/user`,
+      {
+        headers: {
+          Auth: token,
+        },
+      }
+    );
 
     setUserCart(updatedCart.data.items);
   }
@@ -79,11 +94,14 @@ function Cart() {
 
   async function handleClearCart() {
     const token = localStorage.getItem("Auth");
-    const res = await axios.get("https://backend-ecommerce-m2ut.onrender.com/cart/clear", {
-      headers: {
-        Auth: token,
-      },
-    });
+    const res = await axios.get(
+      "https://backend-ecommerce-m2ut.onrender.com/api/cart/clear",
+      {
+        headers: {
+          Auth: token,
+        },
+      }
+    );
     console.log(res.data);
     setUserCart([]);
   }

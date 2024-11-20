@@ -23,7 +23,7 @@ function Address() {
     try {
       const token = localStorage.getItem("Auth");
       const res = await axios.get(
-        "https://backend-ecommerce-m2ut.onrender.com/api/address/get",
+        "https://backend-ecommerce-m2ut.onrender.com/api/api/address/get",
         {
           headers: {
             Auth: token,
@@ -54,7 +54,7 @@ function Address() {
   async function handleOnSubmit() {
     const token = localStorage.getItem("Auth");
     const res = await axios.post(
-      "https://backend-ecommerce-m2ut.onrender.com/address/add",
+      "https://backend-ecommerce-m2ut.onrender.com/api/address/add",
       FormData,
       {
         headers: {

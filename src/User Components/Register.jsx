@@ -21,10 +21,10 @@ const Register = () => {
 
     try {
       const res = await axios.post(
-        "https://backend-ecommerce-m2ut.onrender.com/user/register",
+        "https://backend-ecommerce-m2ut.onrender.com/api/user/register",
         formData
       );
-      
+
       if (res.data.success) {
         toast.success(
           "Registration successful! Please check your email to verify your account."

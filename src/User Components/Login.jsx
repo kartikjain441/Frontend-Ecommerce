@@ -28,7 +28,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "https://backend-ecommerce-m2ut.onrender.com/user/login",
+        "https://backend-ecommerce-m2ut.onrender.com/api/user/login",
         formData
       );
 

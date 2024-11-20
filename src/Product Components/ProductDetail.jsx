@@ -13,7 +13,7 @@ function ProductDetail() {
   useEffect(() => {
     async function getSpecificProduct() {
       const res = await axios.get(
-        `https://backend-ecommerce-m2ut.onrender.com/product/get/${id}`
+        `https://backend-ecommerce-m2ut.onrender.com/api/product/get/${id}`
       );
 
       setSpcProduct(res.data);
@@ -30,7 +30,7 @@ function ProductDetail() {
     const token = localStorage.getItem("Auth");
 
     const res = await axios.post(
-      "https://backend-ecommerce-m2ut.onrender.com/cart/add",
+      "https://backend-ecommerce-m2ut.onrender.com/api/cart/add",
       {
         productId,
         title,
@@ -47,11 +47,14 @@ function ProductDetail() {
 
     toast.success(res.data.message);
 
-    const updatedCart = await axios.get(`https://backend-ecommerce-m2ut.onrender.com/cart/user`, {
-      headers: {
-        Auth: token,
-      },
-    });
+    const updatedCart = await axios.get(
+      `https://backend-ecommerce-m2ut.onrender.com/api/cart/user`,
+      {
+        headers: {
+          Auth: token,
+        },
+      }
+    );
 
     setUserCart(updatedCart.data.items);
   }
