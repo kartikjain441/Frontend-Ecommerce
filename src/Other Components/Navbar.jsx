@@ -94,14 +94,23 @@ const Navbar = () => {
                     <button className="btn btn-success">Home</button>
                   </Link>
                 </li>
-                <li className="nav-item mt-3 mt-lg-0">
-                  <Link to="/Login" className="nav-link">
-                    <button className="btn btn-primary">Login</button>
+                <li
+                  className="nav-item mt-3 mt-lg-0 "
+                  style={{ position: "relative", right: "10px" }}
+                >
+                  <Link
+                    to="/Login"
+                    className="nav-link bg-primary  text-white rounded p-2"
+                  >
+                    Login
                   </Link>
                 </li>
                 <li className="nav-item mt-3 mt-lg-0">
-                  <Link to="/Register" className="nav-link">
-                    <button className="btn btn-secondary">Register</button>
+                  <Link
+                    to="/Register"
+                    className="nav-link bg-success text-white rounded p-2"
+                  >
+                    Register
                   </Link>
                 </li>
               </>
