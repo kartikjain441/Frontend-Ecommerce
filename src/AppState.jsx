@@ -19,14 +19,11 @@ function AppState({ children }) {
   useEffect(() => {
     async function getUserCart() {
       const token = localStorage.getItem("Auth");
-      const res = await axios.get(
-        "https://backend-ecommerce-m2ut.onrender.com/api/cart/user",
-        {
-          headers: {
-            Auth: token,
-          },
-        }
-      );
+      const res = await axios.get("https://backend-ecommerce-m2ut.onrender.com/api/cart/user", {
+        headers: {
+          Auth: token,
+        },
+      });
       setUserId(res.data.userId);
       setUserCart(res.data.items);
     }
@@ -35,14 +32,11 @@ function AppState({ children }) {
 
   const user_Order = async () => {
     const token = localStorage.getItem("Auth");
-    const api = await axios.get(
-      "https://backend-ecommerce-m2ut.onrender.com/api/payment/userorder",
-      {
-        headers: {
-          Auth: token,
-        },
-      }
-    );
+    const api = await axios.get("https://backend-ecommerce-m2ut.onrender.com/api/payment/userorder", {
+      headers: {
+        Auth: token,
+      },
+    });
     console.log("user order", api.data);
     setUserOrder(api.data);
   };
